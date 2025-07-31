@@ -13,8 +13,6 @@ class Autobus(Transport):
     def seating_capacity(self, capacity=50):
         return super().seating_capacity(capacity)
 
-# Создаем объект автобуса
 autobus = Autobus("Renaul Logan", 180, 12)
 
-# Выводим результат
 print(autobus.seating_capacity())
