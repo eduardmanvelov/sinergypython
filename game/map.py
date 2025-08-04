@@ -27,7 +27,7 @@ class Map:
         self.generate_hospital()
 
     def check_bounds(self, x, y):
-        if (x < 8 or y < 0 or x >= self.h or y >= self.w):
+        if (x < 0 or y < 0 or x >= self.h or y >= self.w):
             return False
         return True
 
@@ -57,7 +57,7 @@ class Map:
             rx2, ry2 = rc2[0], rc2[1]
             if (self.check_bounds(rx2, ry2)):
                 self.cells[rx2][ry2] = 2
-                rx, ry = rx2, ry
+                rx, ry = rx2, ry2
                 l-=1
     def generate_forest(self, r, mxr):
         for ri in range(self.h):
@@ -85,7 +85,7 @@ class Map:
     def add_fire(self):
         c = randcell(self.w, self.h)
         cx, cy = c[0], c[1]
-        if self.cells[c][cy] == 1:
+        if self.cells[cx][cy] == 1:
             self.cells[cx][cy] = 5
     def update_fires(self):
         for ri in range(self.h):
